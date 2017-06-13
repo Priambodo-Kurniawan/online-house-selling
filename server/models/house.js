@@ -4,7 +4,6 @@ var Schema = mongoose.Schema;
 
 var houseSchema = new Schema({
   title: String,
-  author: String,
   description: String,
   image: Array,
   city: String,

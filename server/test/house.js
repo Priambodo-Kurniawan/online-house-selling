@@ -125,7 +125,6 @@ describe('House API test', () => {
         res.should.have.a.status(200)
         res.should.be.a('object')
         res.body.should.have.property("title", 'Hello World')
-        res.body.should.have.property('author', 'Jhon Doe')
         res.body.should.have.property('description', 'Lorem Ipsum Dolor sit Amet')
         done();
       })
@@ -163,7 +162,6 @@ describe('House API test', () => {
         res.should.have.a.status(200)
         res.should.be.a('object')
         res.body.should.have.property('title', 'Hello World Web')
-        res.body.should.have.property('author', 'Jhon Doe Foo')
         res.body.should.have.property('description', 'Empty Lorem Ipsum Dolor sit Amet')
         done();
       })
