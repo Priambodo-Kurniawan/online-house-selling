@@ -29,4 +29,8 @@ strong {
 .text-white {
   color: #fff;
 }
+a:hover, a:focus {
+  color: #18bc9c;
+   text-decoration: none; 
+}
 </style>

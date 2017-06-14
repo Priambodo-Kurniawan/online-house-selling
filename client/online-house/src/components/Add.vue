@@ -5,7 +5,7 @@
       <div class="form-group">
         <label for="title" class="col-lg-2 control-label">Title</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" ref="title" id="title" placeholder="Ads Title here">
+          <input type="text" class="form-control" ref="title" id="title" placeholder="Ads Title here" required>
         </div>
       </div>
       <div class="form-group">
@@ -16,21 +16,41 @@
         </div>
       </div>
       <div class="form-group">
+        <label for="lb" class="col-lg-2 control-label">Luas Bangunan</label>
+        <div class="col-lg-4">
+          <input type="number" class="form-control" ref="lb" id="lb" placeholder="Luas Bangunan (dalam m2)" required>
+        </div>
+        <label for="lt" class="col-lg-2 control-label">Luas Tanah</label>
+        <div class="col-lg-4">
+          <input type="number" class="form-control" ref="lt" id="lt" placeholder="Luas Tanah (dalam m2)" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="kt" class="col-lg-2 control-label">Kamar Tidur</label>
+        <div class="col-lg-4">
+          <input type="number" class="form-control" ref="kt" id="kt" placeholder="Jumlah Kamar Tidur" required>
+        </div>
+        <label for="km" class="col-lg-2 control-label">Kamar Mandi</label>
+        <div class="col-lg-4">
+          <input type="number" class="form-control" ref="km" id="km" placeholder="Jumlah Kamar Mandi" required>
+        </div>
+      </div>
+      <div class="form-group">
         <label for="price" class="col-lg-2 control-label">Price</label>
         <div class="col-lg-10">
-          <input type="number" class="form-control" ref="price" id="price" placeholder="Enter price here">
+          <input type="number" class="form-control" ref="price" id="price" placeholder="Enter price here" required>
         </div>
       </div>
       <div class="form-group">
         <label for="image" class="col-lg-2 control-label">Image</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" ref="image" id="image" placeholder="Your Image">
+          <input type="text" class="form-control" ref="image" id="image" placeholder="Your Image" required>
         </div>
       </div>
       <div class="form-group">
         <label for="select" class="col-lg-2 control-label">City</label>
         <div class="col-lg-10">
-          <select class="form-control" id="select" ref="city">
+          <select class="form-control" id="select" ref="city" required>
             <option value="Jakarta">Jakarta</option>
             <option value="Bandung">Bandung</option>
             <option value="Bogor">Bogor</option>
@@ -42,7 +62,7 @@
       <div class="form-group">
         <label for="location" class="col-lg-2 control-label">Location</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" ref="location" id="location" placeholder="Location">
+          <input type="text" class="form-control" ref="location" id="location" placeholder="Location" required>
         </div>
       </div>
       <div class="form-group">
@@ -75,6 +95,10 @@ export default {
       data.image = this.$refs.image.value
       data.city = this.$refs.city.value
       data.location = this.$refs.location.value
+      data.lb = this.$refs.lb.value
+      data.lt = this.$refs.lt.value
+      data.kt = this.$refs.kt.value
+      data.km = this.$refs.km.value
 
       axios.post('http://localhost:5000/api/houses', data)
       .then((response) => {
