@@ -4,8 +4,8 @@
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li @click="showProducts"><p>Find House</p></li>
-          <li @click="showAddView"><p>Sell House</p></li>
+          <li @click="showProducts" id="find-house" class="active"><p>Find House</p></li>
+          <li @click="showForm" id="sell-house"><p>Sell House</p></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><i class="fa fa-th"></i></a></li>
@@ -31,10 +31,14 @@
 export default {
   name: 'view-bar',
   methods: {
-    showAddView() {
+    showForm() {
+      $('#find-house').removeClass('active')
+      $('#sell-house').addClass('active')
       this.$store.commit('showForm')
     },
     showProducts() {
+      $('#find-house').addClass('active')
+      $('#sell-house').removeClass('active')
       this.$store.commit('showProducts')
     }
   }
@@ -52,5 +56,8 @@ export default {
     margin-bottom: 0;
     cursor: pointer;
     padding: 19.5px 15px;
+  }
+  .active {
+    background-color: #1a242f;
   }
 </style>

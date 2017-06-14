@@ -25,6 +25,12 @@ export const store = new Vuex.Store({
         state.data = houses.data
       })
       .catch( err => console.log(err))
+    },
+    pushData(state, data){
+      state.data.push(data)
+      state.viewProducts = true
+      state.showForm = false
+      console.log(data);
     }
   },
   actions: {

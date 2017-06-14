@@ -78,6 +78,7 @@ export default {
 
       axios.post('http://localhost:5000/api/houses', data)
       .then((response) => {
+        this.$store.commit('pushData', response.data)
         console.log(response.data);
       })
       .catch( err => console.log(err))

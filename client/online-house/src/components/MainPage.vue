@@ -5,7 +5,7 @@
     <div class="container">
       <ViewBar />
     </div>
-    <div class="container">
+    <div class="container flex">
       <Thumbnail v-show="viewProducts"
         v-for="data in showData"
         :key="data._id"
@@ -15,7 +15,9 @@
         :city="data.city"
         :location="data.location"
         :image="data.image" />
-      <Add v-show="showForm" />
+    </div>
+    <div class="container" v-show="showForm">
+      <Add />
     </div>
   </div>
 </template>
@@ -51,8 +53,10 @@ export default {
   },
   created () {
     console.log(this.showData);
-    this.getData
     this.showData
+  },
+  mounted () {
+    this.getData
   }
 }
 </script>
@@ -75,5 +79,8 @@ li {
 
 a {
   color: #42b983;
+}
+.flex {
+  display: flex;
 }
 </style>

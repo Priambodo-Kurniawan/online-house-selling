@@ -27,5 +27,6 @@ export default {
 <style scoped>
   .thumbnail-view {
     width: 25%;
+    padding: 5px;
   }
 </style>
