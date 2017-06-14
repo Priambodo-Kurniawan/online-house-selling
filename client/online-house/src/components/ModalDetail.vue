@@ -25,7 +25,7 @@
             </div>
           </div>
           <h5><strong>Description</strong></h5>
-          <p><small>{{data.description}}</small></p>
+          <textarea :value="data.description" rows="8" cols="80"></textarea>
           <br>
         </div>
         <div class="modal-footer">
@@ -71,5 +71,8 @@ export default {
       width: 800px;
       margin: 30px auto;
     }
+  }
+  textarea {
+    border: none;
   }
 </style>
