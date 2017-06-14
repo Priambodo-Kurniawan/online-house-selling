@@ -23,6 +23,10 @@ export const store = new Vuex.Store({
       axios.get('http://localhost:5000/api/houses')
       .then(houses => {
         state.data = houses.data
+        state.data.forEach(house => {
+          var newPrice = house.price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")
+          house.formatedPrice = newPrice
+        })
       })
       .catch( err => console.log(err))
     },

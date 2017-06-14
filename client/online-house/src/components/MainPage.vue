@@ -10,7 +10,7 @@
         v-for="data in showData"
         :key="data._id"
         :title="data.title"
-        :price="data.price"
+        :price="data.formatedPrice"
         :desc="data.description"
         :city="data.city"
         :location="data.location"
@@ -82,5 +82,6 @@ a {
 }
 .flex {
   display: flex;
+  flex-wrap: wrap;
 }
 </style>

@@ -4,7 +4,7 @@
       <a href="#">
         <img :src="image" alt="Lights" style="width:100%">
         <div class="caption">
-          <h5>Rp. {{price}}</h5>
+          <h5>Rp {{price}}</h5>
           <h4><strong>{{title}}</strong></h4>
           <p><i class="fa fa-map-marker"></i> {{city}}</p>
         </div>

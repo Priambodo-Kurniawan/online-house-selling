@@ -18,9 +18,11 @@ methods.getByID = (req, res) => {
 }
 
 methods.create = (req, res) => {
-  House.create(req.body)
-  .then(()=>{
-    res.send('House added')
+  let newHouse = new House(req.body)
+
+  newHouse.save()
+  .then(houses => {
+    res.send(houses)
   })
   .catch((err)=>{res.send(err)})
 }

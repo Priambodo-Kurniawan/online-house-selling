@@ -62,7 +62,7 @@ describe('House API test', () => {
       .end((err,res) => {
         res.should.have.a.status(200)
         res.body.should.be.a('object')
-        res.text.should.equal('House added')
+        res.body.should.have.property("title", 'Hello World')
         done();
       })
     });
