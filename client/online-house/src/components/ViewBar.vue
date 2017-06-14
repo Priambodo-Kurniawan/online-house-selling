@@ -8,7 +8,7 @@
           <li @click="showForm" id="sell-house"><p>Sell House</p></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><i class="fa fa-th"></i></a></li>
+          <li class="active"><a href="#"><i class="fa fa-th"></i></a></li>
           <li><a href="#"><i class="fa fa-th-list"></i></a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
@@ -34,12 +34,16 @@ export default {
     showForm() {
       $('#find-house').removeClass('active')
       $('#sell-house').addClass('active')
-      this.$store.commit('showForm')
+      $('.add').addClass('active')
+      $('.product-display').removeClass('active')
+      // this.$store.commit('showForm')
     },
     showProducts() {
       $('#find-house').addClass('active')
       $('#sell-house').removeClass('active')
-      this.$store.commit('showProducts')
+      $('.add').removeClass('active')
+      $('.product-display').addClass('active')
+      // this.$store.commit('showProducts')
     }
   }
 }

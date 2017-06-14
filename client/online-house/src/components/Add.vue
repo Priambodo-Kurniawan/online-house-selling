@@ -67,11 +67,13 @@
       </div>
       <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
-          <button type="button" class="btn btn-primary" @click="submitData" >
+          <button type="submit" class="btn btn-primary" @click="submitData" >
             Submit
           </button>
-
         </div>
+      </div>
+      <div class="alert alert-danger col-lg-10 col-lg-offset-2" v-show="error">
+        <strong>Please fill the form completely!</strong>
       </div>
     </fieldset>
   </form>
@@ -83,27 +85,37 @@ export default {
   name: 'add',
   data() {
     return {
-      data: null
+      data: null,
+      error: false
     }
   },
   methods: {
     submitData(){
       let data = {}
-      data.title = this.$refs.title.value
-      data.description = this.$refs.description.value
-      data.price = this.$refs.price.value
-      data.image = this.$refs.image.value
-      data.city = this.$refs.city.value
-      data.location = this.$refs.location.value
-      data.lb = this.$refs.lb.value
-      data.lt = this.$refs.lt.value
-      data.kt = this.$refs.kt.value
-      data.km = this.$refs.km.value
+      data.title = this.$refs.title.value || null
+      data.description = this.$refs.description.value || null
+      data.price = this.$refs.price.value || null
+      data.image = this.$refs.image.value || null
+      data.city = this.$refs.city.value || null
+      data.location = this.$refs.location.value || null
+      data.lb = this.$refs.lb.value || null
+      data.lt = this.$refs.lt.value || null
+      data.kt = this.$refs.kt.value || null
+      data.km = this.$refs.km.value || null
 
-      axios.post('http://localhost:5000/api/houses', data)
+      let self = this
+      axios.post('http://localhost:3000/api/houses', data)
       .then((response) => {
-        this.$store.commit('pushData', response.data)
-        console.log(response.data);
+        if (response.data.errors) {
+          self.error = true
+          setTimeout(function(){ self.error = false }, 2000)
+        } else {
+          this.$store.commit('pushData', response.data)
+          $('.add').removeClass('active')
+          $('.product-display').addClass('active')
+          location.reload()
+          // console.log(response.data);
+        }
       })
       .catch( err => console.log(err))
     }
@@ -115,5 +127,24 @@ export default {
 <style scoped>
   .panel.panel-default {
     background-color: #ecf0f1;
+  }
+  .add {
+    transform: translateX(103%);
+    transition: transform .5s ease;
+  }
+  .add.active {
+    transform: translateX(0);
+    transition: transform .5s ease;
+    min-height: 700px;
+  }
+  .add .form-horizontal {
+    position: relative;
+    background-color: red;
+  }
+  .add fieldset {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
   }
 </style>

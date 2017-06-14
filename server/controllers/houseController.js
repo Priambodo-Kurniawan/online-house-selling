@@ -14,7 +14,9 @@ methods.getByID = (req, res) => {
   .then((house)=>{
     res.send(house)
   })
-  .catch((err)=>{res.send(err)})
+  .catch((err)=>{
+    res.send(err.message)
+  })
 }
 
 methods.create = (req, res) => {
@@ -24,7 +26,9 @@ methods.create = (req, res) => {
   .then(houses => {
     res.send(houses)
   })
-  .catch((err)=>{res.send(err)})
+  .catch((err)=>{
+    res.send(err)}
+  )
 }
 
 methods.update = (req, res) => {

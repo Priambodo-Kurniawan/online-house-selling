@@ -20,7 +20,7 @@ export const store = new Vuex.Store({
       state.showForm = false
     },
     getData(state){
-      axios.get('http://localhost:5000/api/houses')
+      axios.get('http://localhost:3000/api/houses')
       .then(houses => {
         state.data = houses.data
         state.data.forEach(house => {
