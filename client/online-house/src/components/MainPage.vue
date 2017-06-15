@@ -18,6 +18,7 @@
 
     </div>
     <ModalDetail :data="currentData" />
+    <Footer />
   </div>
 </template>
 
@@ -30,6 +31,7 @@ import Thumbnail from './Thumbnail'
 import Loader from './Loader'
 import ModalDetail from './ModalDetail'
 import ListView from './ListView'
+import Footer from './Footer'
 export default {
   components: {
     Navbar,
@@ -39,7 +41,8 @@ export default {
     Thumbnail,
     Loader,
     ModalDetail,
-    ListView
+    ListView,
+    Footer
   },
   data () {
     return {

@@ -65,6 +65,7 @@ export default {
     padding: 14px;
     font-size: 12px;
     color: #717171;
+    background-color: white;
   }
   .image-left {
     width: 40%;
