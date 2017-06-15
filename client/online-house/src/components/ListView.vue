@@ -88,6 +88,7 @@ export default {
     width: 100%;
     background-color: white;
     border: none;
-    max-height: 100px;
+    min-height: 100px;
+    max-width: 100%;
   }
 </style>
