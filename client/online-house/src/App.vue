@@ -31,6 +31,12 @@ strong {
 }
 a:hover, a:focus {
   color: #18bc9c;
-   text-decoration: none; 
+   text-decoration: none;
+}
+.text-bold {
+  font-weight: 500;
+}
+.flex {
+  display: flex;
 }
 </style>

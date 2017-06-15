@@ -18,6 +18,26 @@
               </div>
             </div>
             <div class="col-md-6">
+              <table class="table table-striped">
+                <tbody>
+                  <tr>
+                    <td class="text-bold">Luas Tanah</td>
+                    <td>{{data.lt}}m2</td>
+                  </tr>
+                  <tr>
+                    <td class="text-bold">Luas Bangunan</td>
+                    <td>{{data.lb}} m2</td>
+                  </tr>
+                  <tr>
+                    <td class="text-bold">Kamar Tidur</td>
+                    <td>{{data.kt}} ruang</td>
+                  </tr>
+                  <tr>
+                    <td class="text-bold">Kamar Mandi</td>
+                    <td>{{data.km}} ruang</td>
+                  </tr>
+                </tbody>
+              </table>
               <h4><strong>Rp {{data.formatedPrice}}</strong></h4>
               <h5><strong>Lokasi</strong></h5>
               <p>{{data.location}}</p>
@@ -25,7 +45,7 @@
             </div>
           </div>
           <h5><strong>Description</strong></h5>
-          <textarea :value="data.description" rows="8" cols="80"></textarea>
+          <textarea :value="data.description" rows="8" cols="80" disabled></textarea>
           <br>
         </div>
         <div class="modal-footer">
@@ -74,5 +94,6 @@ export default {
   }
   textarea {
     border: none;
+    background-color: white;
   }
 </style>

@@ -1,24 +1,16 @@
 <template>
   <div class="main-page">
-    <Navbar />
     <MainHeader />
     <div class="container">
       <ViewBar />
     </div>
     <div class="products container" v-show="viewProducts">
       <Loader v-show="isLoading" />
-      <div class="product-display flex active">
-        <Thumbnail v-if="!isLoading"
-        v-for="data in showData"
-        :currentData="data"
-        :key="data._id"
-        :title="data.title"
-        :price="data.formatedPrice"
-        :desc="data.description"
-        :city="data.city"
-        :location="data.location"
-        :image="data.image"
-        @thisData="thisData" />
+      <div id="thumbnail-container" class="product-display flex active">
+        <Thumbnail v-if="!isLoading" v-for="data in showData" :key="data._id" :data="data" @thisData="thisData" />
+      </div>
+      <div id="list-container" class="product-display flex active" style="display:none">
+        <ListView v-for="data in showData" :key="data._id" :data="data" />
       </div>
       <Add />
     </div>
@@ -37,6 +29,7 @@ import ViewBar from './ViewBar'
 import Thumbnail from './Thumbnail'
 import Loader from './Loader'
 import ModalDetail from './ModalDetail'
+import ListView from './ListView'
 export default {
   components: {
     Navbar,
@@ -45,7 +38,8 @@ export default {
     ViewBar,
     Thumbnail,
     Loader,
-    ModalDetail
+    ModalDetail,
+    ListView
   },
   data () {
     return {

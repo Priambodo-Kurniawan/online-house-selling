@@ -8,10 +8,10 @@
           <li @click="showForm" id="sell-house"><p>Sell House</p></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#"><i class="fa fa-th"></i></a></li>
-          <li><a href="#"><i class="fa fa-th-list"></i></a></li>
+          <li class="thumb-icon active"><a href="#" @click="thumbnailView"><i class="fa fa-th"></i></a></li>
+          <li class="list-icon"><a href="#" @click="listView"><i class="fa fa-th-list"></i></a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Action</a></li>
               <li><a href="#">Another action</a></li>
@@ -44,6 +44,18 @@ export default {
       $('.add').removeClass('active')
       $('.product-display').addClass('active')
       // this.$store.commit('showProducts')
+    },
+    listView() {
+      $("#thumbnail-container").fadeOut("slow");
+      $("#list-container").fadeIn("slow");
+      $('.thumb-icon').removeClass('active')
+      $('.list-icon').addClass('active')
+    },
+    thumbnailView() {
+      $("#thumbnail-container").fadeIn("slow");
+      $("#list-container").fadeOut("slow");
+      $('.thumb-icon').addClass('active')
+      $('.list-icon').removeClass('active')
     }
   }
 }
